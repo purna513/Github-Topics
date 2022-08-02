@@ -1,9 +1,9 @@
 import React from "react";
 
-import FlexWrapper from "./Atoms/FlexWrapper.js";
-import Typography from "./Atoms/Typography.js";
+import FlexWrapper from "./FlexWrapper";
+import Typography from "./Typography";
 
-import StarIcon from "./Images/StarIcon.js";
+import StarIcon from "../Assets/StarIcon";
 
 const StarsCountDisplay = ({ starsCount }) => {
   return (
@@ -13,7 +13,7 @@ const StarsCountDisplay = ({ starsCount }) => {
       style={{
         border: "1px solid #1b1f2426",
         borderRadius: "4px",
-        padding: "2px 6px"
+        padding: "2px 6px",
       }}
     >
       <StarIcon />

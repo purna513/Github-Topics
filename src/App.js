@@ -3,13 +3,13 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink
+  createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import Header from "./Header";
-import FlexWrapper from "./Atoms/FlexWrapper";
-import TopicDetails from "./TopicDetails";
+import Header from "./Components/Header";
+import FlexWrapper from "./Components/FlexWrapper";
+import TopicDetails from "./Components/TopicDetails";
 
 import "./styles.css";
 
@@ -17,7 +17,7 @@ export default function App() {
   const [activeTerm, setActiveTerm] = React.useState("react");
 
   const httpLink = createHttpLink({
-    uri: "https://api.github.com/graphql"
+    uri: "https://api.github.com/graphql",
   });
 
   const authLink = setContext((_, { headers }) => {
@@ -25,14 +25,14 @@ export default function App() {
     return {
       headers: {
         ...headers,
-        authorization: token ? `Bearer ${token}` : ""
-      }
+        authorization: token ? `Bearer ${token}` : "",
+      },
     };
   });
 
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 
   const callbackToSetActiveTerm = (newActiveTerm) => {

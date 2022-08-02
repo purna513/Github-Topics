@@ -1,18 +1,18 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 
-import Button from "./Atoms/Button";
-import Typography from "./Atoms/Typography";
-import FlexWrapper from "./Atoms/FlexWrapper";
-import { LOAD_TOPIC_STARGAZERS } from "./Graphql/Queries";
+import Button from "./Button";
+import Typography from "./Typography";
+import FlexWrapper from "./FlexWrapper";
 import StarsCountDisplay from "./StarsCountDisplay";
+import { LOAD_TOPIC_STARGAZERS } from "../Graphql/Queries";
 
-import RepositoryIcon from "./Images/RepositoryIcon";
+import RepositoryIcon from "../Assets/RepositoryIcon";
 
 const TopicDetails = ({ activeTopicName, onTopicNameClick }) => {
   const { error, data, loading, refetch } = useQuery(LOAD_TOPIC_STARGAZERS, {
     variables: { name: activeTopicName },
-    fetchPolicy: "no-cache"
+    fetchPolicy: "no-cache",
   });
 
   if (error) {
@@ -59,7 +59,7 @@ const TopicDetails = ({ activeTopicName, onTopicNameClick }) => {
             color: "#0969da",
             textTransform: "capitalize",
             fontSize: "16px",
-            fontWeight: 500
+            fontWeight: 500,
           }}
           onButtonClick={() => onTopicNameClick("react")}
         />
@@ -86,7 +86,7 @@ const TopicDetails = ({ activeTopicName, onTopicNameClick }) => {
               border: "1px solid #d0d7de",
               padding: "16px",
               width: "100%",
-              maxWidth: "360px"
+              maxWidth: "360px",
             }}
           >
             <FlexWrapper flexDirection="row" gap="4px" width="fit-content">
@@ -100,7 +100,7 @@ const TopicDetails = ({ activeTopicName, onTopicNameClick }) => {
                   color: "#0969da",
                   textTransform: "capitalize",
                   fontSize: "16px",
-                  fontWeight: 500
+                  fontWeight: 500,
                 }}
                 onButtonClick={() => onTopicNameClick(each.name)}
               />

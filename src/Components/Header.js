@@ -1,7 +1,7 @@
 import React from "react";
 
-import FlexWrapper from "./Atoms/FlexWrapper";
-import Typography from "./Atoms/Typography";
+import FlexWrapper from "./FlexWrapper";
+import Typography from "./Typography";
 
 const Header = ({ heading }) => {
   return (
